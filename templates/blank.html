@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<div class="container">
+    {% for q in qs %}
+    <h3>Welcome, {{q.student_name}}</h3>
+    {% endfor %}
+    <table width="600px" border="2px">
+        <tr><th>Application no. </th>
+            <th>Student name </th>
+            <th>Father's name </th>
+            <th>Mother's name </th>
+            <th>Address </th>
+        </tr>
+        {% for q in qs %}
+        <tr>
+            <td>{{q.application_no}}</td>
+            <td>{{q.student_name}}</td>
+            <td>{{q.father_name}}</td>
+            <td>{{q.mother_name}}</td>
+            <td>{{q.address}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

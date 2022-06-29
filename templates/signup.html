@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<div class="row">
+<div class="container">
+<form method="post" class="col-lg-8">
+        {% csrf_token %}
+        <div class="form-group form-inline mx-auto">
+            <label for="Name"><h4>Name:</h4></label>
+                <input type="text" class="form-control" id="Name" placeholder="First name" name="fname">
+                <input type="text" class="form-control" id="Name" placeholder="Last name" name="lname">
+        </div>
+        <div class="form-group form-inline">
+            <label for="Username" class="float-end"><h4>Choose your username:</h4></label>
+                <input type="text" class="form-control" id="Username" name="uname">
+        </div>
+        <div class="form-group form-inline">
+            <label for="Password"><h4>Create a password:</h4></label>
+            <input type="password" class="form-control" id="Password" placeholder="password" name="psw">
+        </div>
+        <div class="form-group form-inline">
+            <label for="Birthdate"><h4>Birthdate:</h4></label>
+            <input type="date" class="form-control" id="Birthdate" placeholder="Date" name="date">
+        </div>
+        <div class="form-group form-inline">
+            <label for="Gender"><h4>Gender:</h4></label>
+            <input type="radio" id="Gender" name="gender" value="Male"> Male
+            <input type="radio" id="Gender" name="gender" value="Female"> Female
+        </div>
+        <div class="form-group form-inline">
+            <label for="Education"><h4>Qualification:</h4></label>
+            <input type="checkbox" id="Education" name="edu1" value="Graduate"> Graduate
+            <input type="checkbox" id="Education" name="edu2" value="Postgraduate"> Postgraduate
+            <input type="checkbox" id="Education" name="edu3" value="Doctorate"> Doctorate
+        </div>
+        <div class="form-group form-inline">
+            <label for="city"><h4>Prefered City:</h4></label>
+            <select name="city">
+                <option value="Mumbai" selected>Mumbai</option>
+                <option value="Pune">Pune</option>
+                <option value="Banglore">Banglore</option>
+                <option value="Delhi">Delhi</option>
+            </select>
+        </div>
+        <div class="form-group form-inline">
+            <label for="Email"><h4>Enter your email id:</h4></label>
+            <input type="email" class="form-control" id="Email" name="email" placeholder="Email">
+        </div>
+        <div class="form-group form-inline">
+            <label for="Address"><h4>Address:</h4></label><br>
+            <textarea rows="1" cols="50" name="address">Enter your address..</textarea>
+        </div>
+        <button type="submit" name='btn' class="btn btn-primary btn-lg">Submit</button>
+
+</form>
+<div class="col-lg-4">
+    
+    <div class="container">
+        <h2>Your information:</h2>
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Click to open</button>
+      
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Your information:</h4>
+              </div>
+              <div class="modal-body">
+                <p>Name: {{first_name}} {{last_name}}<br>
+                    Username: {{user_name}}<br>
+                    Birthdate: {{birth_date}}<br>
+                    Gender: {{gender}}<br>
+                    Qualification: {{edu}}<br>
+                    Prefered city: {{city}}<br>
+                    Address: {{address}}<br>
+                    Email: {{email}}
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+
+<h1>Features page</h1>
+<p>login successful</p>
+<br>
+{% for i in name%}
+{% if  i == 'Felix' %}
+<h2>{{i}}</h2>
+{% endif %}
+{% endfor %}
+{% endblock %}

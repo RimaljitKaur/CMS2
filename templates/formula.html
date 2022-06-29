@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+
+<div class="container mt-3">
+    <h2>S.I. form</h2>
+    <form method="post">
+        {% csrf_token %}
+      <div class="mb-3 mt-3">
+        <label for="P">Principle value:</label>
+        <input type="number" class="form-control" id="P" placeholder="Enter P" name="Principle" >
+      </div>
+      <div class="mb-3">
+        <label for="R">Rate:</label>
+        <input type="number" class="form-control" id="R" placeholder="Enter R" name="Rate">
+      </div>
+      <div class="mb-3">
+        <label for="T">Time:</label>
+        <input type="number" class="form-control" id="T" placeholder="Enter T" name="Time">
+      </div>
+      <div>
+        <label>
+          <p>Simple interest : {{result}}</p>
+        </label>
+      </div>
+      <button type="submit" name='btn' class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+{% endblock %}

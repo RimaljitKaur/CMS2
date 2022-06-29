@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_content %}
+<form method="post">
+    {% csrf_token %}
+    <div class="container">
+    <div class="form-group form-inline mx-auto">
+        <label for="Name"><h4>Student name: </h4></label>
+            <input type="text" class="form-control" id="Name" name="Sname">
+    </div>
+    <div class="form-group form-inline">
+        <label for="fathername" class="float-end"><h4>Father name:  </h4></label>
+            <input type="text" class="form-control" id="fathername" name="fathername">
+    </div>
+    <div class="form-group form-inline">
+        <label for="mothername" class="float-end"><h4>Mother name: </h4></label>
+            <input type="text" class="form-control" id="mothername" name="mothername">
+    </div>
+    <div class="form-group form-inline">
+        <label for="dateofbirth"><h4>Date of birth: </h4></label>
+        <input type="date" class="form-control" id="dateofbirth" name="DOB">
+    </div>
+    <div class="form-group form-inline">
+        <label for="Gender"><h4>Gender: </h4></label>
+        <input type="radio" id="Gender" name="gender" value="Male"> Male
+        <input type="radio" id="Gender" name="gender" value="Female"> Female
+    </div>
+    <div class="form-group form-inline">
+        <label for="Email"><h4>Email id: </h4></label>
+        <input type="email" class="form-control" id="Email" name="emailid" placeholder="Email">
+    </div>
+    <div class="form-group form-inline">
+        <label for="Address"><h4>Address: </h4></label><br>
+        <textarea rows="1" cols="50" name="address"></textarea>
+    </div>
+    <button type="submit" name='btn' class="btn btn-primary btn-lg">Submit</button>
+    </div>
+</form>
+<div class="container">
+    <table width="600px" border="2px">
+        <tr><th>Application no. </th>
+            <th>Student name </th>
+            <th>Father's name </th>
+            <th>Mother's name </th>
+            <th>Date of birth </th>
+            <th>Gender </th>
+            <th>Email </th>
+            <th>Address </th>
+        </tr>
+        {% for q in queryset %}
+        <tr>
+            <td>{{q.application_no}}</td>
+            <td>{{q.student_name}}</td>
+            <td>{{q.father_name}}</td>
+            <td>{{q.mother_name}}</td>
+            <td>{{q.date_of_birth}}</td>
+            <td>{{q.gender}}</td>
+            <td>{{q.email}}</td>
+            <td>{{q.address}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
